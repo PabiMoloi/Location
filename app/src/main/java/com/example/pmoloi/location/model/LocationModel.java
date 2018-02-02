@@ -1,8 +1,50 @@
 package com.example.pmoloi.location.model;
 
-/**
- * Created by PMoloi on 2018/02/02.
- */
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 public class LocationModel {
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    private int locationId;
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    private String locationName;
+
+    public double getLocationLatitude() {
+        return locationLatitude;
+    }
+
+    private double locationLatitude;
+
+    public double getLocationLongitude() {
+        return locationLongitude;
+    }
+
+    private double locationLongitude;
+
+    public String getLocationBestFeature() {
+        return locationBestFeature;
+    }
+
+    private String locationBestFeature;
+
+    public int getLocationNumberOfVisits() {
+        return locationNumberOfVisits;
+    }
+
+    private int locationNumberOfVisits;
+
+
+    public LocationModel(String locationName, double locationLatitude, double locationLongitude, String locationBestFeature, int locationNumberOfVisits)
+    {
+        this.locationName = locationName;
+        this.locationLatitude = locationLatitude;
+        this.locationLongitude = locationLongitude;
+        this.locationBestFeature = locationBestFeature;
+        this.locationNumberOfVisits = locationNumberOfVisits;
+    }
 }
