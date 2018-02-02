@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Location</string>
+    <string name="version">Version:</string>
+    <string name="splash_screen_logo_content_description">Splash Screen Logo</string>
 </resources>
