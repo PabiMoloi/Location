@@ -18,21 +18,24 @@ jobs:
       TERM: dumb
 
     steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "build.gradle" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: gradle dependencies
-
-      - save_cache:
-          paths:
-            - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
-
-      # run tests!
-      - run: gradle test
+          - checkout
+          - restore_cache:
+                key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          - run:
+                name: chmod permissions
+                command: chmod +x ./gradlew
+          - run:
+                name: Run Tests
+                command: ./gradlew build
+          - save_cache:
+                paths:
+                    - ~/.gradle
+                key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          - store_artifacts:
+                path: app/build/reports
+                destination: reports
+          - store_artifacts:
+                path:  app/build/outputs
+                destination: outputs
+          - store_test_results:
+                path: app/build/test-results
