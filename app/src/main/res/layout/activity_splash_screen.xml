@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryLightColor"
-    tools:context="com.example.pmoloi.location.SplashScreenActivity">
+    tools:context="com.example.pmoloi.location.SplashScreenActivity"
+    android:theme="@style/AppThemeNoActionBar">
 
     <TextView
         android:id="@+id/textViewSplashScreenAppName"
@@ -40,24 +41,28 @@
         android:id="@+id/textViewSplashScreenVersionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="144dp"
+        android:layout_marginBottom="224dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="8dp"
         android:text="@string/version"
         android:textColor="@color/secondaryLightColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSplashScreenAppName" />
 
     <TextView
         android:id="@+id/textViewSplashScreenVersionCodeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="224dp"
         android:layout_marginEnd="148dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:textColor="@color/secondaryLightColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.562"
-        app:layout_constraintStart_toEndOf="@+id/textViewSplashScreenVersionLabel" />
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toEndOf="@+id/textViewSplashScreenVersionLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSplashScreenAppName" />
 
 </android.support.constraint.ConstraintLayout>
