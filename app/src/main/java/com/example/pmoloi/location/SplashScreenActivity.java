@@ -1,5 +1,6 @@
 package com.example.pmoloi.location;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -14,5 +15,9 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         appVersionCode = findViewById(R.id.textViewSplashScreenVersionCodeLabel);
         appVersionCode.setText(BuildConfig.VERSION_NAME);
+
+        Intent homeIntent = new Intent(this, MainActivity.class);
+        startActivity(homeIntent);
+
     }
 }
