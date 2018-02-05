@@ -49,13 +49,19 @@ public class LocationModel {
 
     private int locationNumberOfVisits;
 
+    public String getLocationType() {
+        return locationType;
+    }
 
-    public LocationModel(String locationName, double locationLatitude, double locationLongitude, String locationBestFeature, int locationNumberOfVisits)
+    private String locationType;
+
+    public LocationModel(String locationName, double locationLatitude, double locationLongitude, String locationBestFeature,String locationType, int locationNumberOfVisits)
     {
         this.locationName = locationName;
         this.locationLatitude = locationLatitude;
         this.locationLongitude = locationLongitude;
         this.locationBestFeature = locationBestFeature;
+        this.locationType = locationType;
         this.locationNumberOfVisits = locationNumberOfVisits;
     }
 }

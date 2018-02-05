@@ -32,7 +32,7 @@ public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapte
     private final LayoutInflater layoutInflater;
     private List<LocationModel> mLocations;
 
-    LocationListAdapter(Context context){layoutInflater = LayoutInflater.from(context);}
+   public LocationListAdapter(Context context){layoutInflater = LayoutInflater.from(context);}
 
     @Override
     public LocationViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -50,7 +50,7 @@ public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapte
         holder.textViewLocationNumberOfVisits.setText(currentLocation.getLocationNumberOfVisits());
     }
 
-    void setLocations(List<LocationModel> locations)
+    public void setLocations(List<LocationModel> locations)
     {
         mLocations = locations;
         notifyDataSetChanged();
