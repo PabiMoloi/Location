@@ -3,11 +3,12 @@
     <string name="version">Version:</string>
     <string name="splash_screen_logo_content_description">Splash Screen Logo</string>
 
-    <string name = "instruction_add_location">Add Location</string>
-    <string name = "addLocation_location_name">Location Name</string>
-    <string name = "addLocation_location_best_feature"> Location\'s Best Feature</string>
-    <string name = "addLocation_location_type">Location Type</string>
-    <string name = "addLocation_location_number_of_visits"> Number of Visits</string>
-    <string name = "action_add_location">Add Location</string>
-    <string name = "action_cancel">Cancel</string>
+    <string name="instruction_add_location">Add Location</string>
+    <string name="addLocation_location_name">Location Name</string>
+    <string name="addLocation_location_best_feature"> Location\'s Best Feature</string>
+    <string name="addLocation_location_type">Location Type</string>
+    <string name="addLocation_location_number_of_visits"> Number of Visits</string>
+    <string name="action_add_location">Add Location</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="title_activity_maps">Location Map</string>
 </resources>
