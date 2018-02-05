@@ -7,6 +7,7 @@
     tools:context="com.example.pmoloi.location.MainActivity">
 
     <include layout="@layout/content_main"/>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
@@ -22,7 +23,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_add_black_24dp"
         android:onClick="addLocationButtonPress"/>
-
-
 
 </android.support.constraint.ConstraintLayout>
