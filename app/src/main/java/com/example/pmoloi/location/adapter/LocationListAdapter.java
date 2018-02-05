@@ -47,7 +47,8 @@ public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapte
         LocationModel currentLocation = mLocations.get(position);
         holder.textViewLocationName.setText(currentLocation.getLocationName());
         holder.textViewLocationBestFeature.setText(currentLocation.getLocationBestFeature());
-        holder.textViewLocationNumberOfVisits.setText(currentLocation.getLocationNumberOfVisits());
+
+        //holder.textViewLocationNumberOfVisits.setText(currentLocation.getLocationNumberOfVisits());
     }
 
     public void setLocations(List<LocationModel> locations)

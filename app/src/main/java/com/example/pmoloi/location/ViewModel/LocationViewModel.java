@@ -24,5 +24,5 @@ public class LocationViewModel extends AndroidViewModel{
         mAllLocations = locationRepository.getAllLocations();
     }
     public LiveData<List<LocationModel>> getAllLocations(){return mAllLocations;}
-    public void insertLocation (LocationModel location) {};
+    public void insertLocation (LocationModel location) {locationRepository.insertLocation(location);};
 }

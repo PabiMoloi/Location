@@ -26,6 +26,11 @@ public class LocationRepository {
 
     public LiveData<List<LocationModel>> getAllLocations(){return mAllLocations;}
 
+    public void insertLocation(LocationModel locationModel)
+    {
+        new insertAsyncTask(locationDao).execute(locationModel);
+    }
+
     private static class insertAsyncTask extends AsyncTask<LocationModel, Void, Void>
     {
         private LocationDao asyncLocationDao;
