@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void addLocationButtonPress(View view)
     {
-        Intent addLocationIntent = new Intent(this, AddLocationActivity.class);
+        Intent addLocationIntent = new Intent(this, MapsActivity.class);
         startActivity(addLocationIntent);
     }
 }

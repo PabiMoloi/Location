@@ -1,6 +1,9 @@
 package com.example.pmoloi.location;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.annotation.NonNull;
@@ -43,7 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GeoDataClient mGeoDataClient;
     private PlaceDetectionClient mPlaceDetectionClient;
     private static final String TAG = MapsActivity.class.getSimpleName();
-    private final LatLng mDefaultLocation = new LatLng(-33.8523341, 151.2106085);
+    private final LatLng mDefaultLocation = new LatLng(26.2041, 28.0473);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,15 +65,49 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mPlaceDetectionClient = Places.getPlaceDetectionClient(this, null);
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
     }
-    
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        getLocationPermission();
+        updateLocationUI();
+        getDeviceLocation();
+        LatLng sydney = new LatLng(mDefaultLocation.latitude,mDefaultLocation.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener()
+        {
+            @Override
+            public void onMapLongClick(final LatLng mMapCoordinates)
+            {
+                mapLocationLatitude = mMapCoordinates.latitude;
+                mapLocationLongitude = mMapCoordinates.longitude;
+
+                mCameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(mMapCoordinates.latitude,mMapCoordinates.longitude),DEFAULT_ZOOM);
+                mMap.moveCamera(mCameraUpdate);
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                alertDialogBuilder.setMessage(R.string.mapactivity_add_location_dialog_message)
+                        .setCancelable(true)
+                        .setPositiveButton(R.string.action_yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent AddLocationIntent = new Intent(new Intent(MapsActivity.this, AddLocationActivity.class));
+                                AddLocationIntent.putExtra("mMapCoordinatesLatitude", mapLocationLatitude);
+                                AddLocationIntent.putExtra("mMapCoordinatesLongitude",mapLocationLongitude);
+                                startActivity(AddLocationIntent);
+                            }
+                        })
+                        .setNegativeButton(R.string.action_no, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+        });
     }
 
     @Override
