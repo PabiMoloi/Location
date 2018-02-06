@@ -15,8 +15,7 @@ import java.util.List;
 
 public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapter.LocationViewHolder>{
 
-    public class LocationViewHolder extends RecyclerView.ViewHolder
-
+     class LocationViewHolder extends RecyclerView.ViewHolder
     {
         private final TextView textViewLocationName, textViewLocationBestFeature, textViewLocationNumberOfVisits;
 
