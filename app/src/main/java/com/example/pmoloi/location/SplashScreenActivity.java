@@ -20,6 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         actionBar.hide();
         Intent homeIntent = new Intent(this, MainActivity.class);
         startActivity(homeIntent);
+        finish();
 
     }
 }
