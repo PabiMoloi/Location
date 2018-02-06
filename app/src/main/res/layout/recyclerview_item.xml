@@ -8,7 +8,7 @@
     <android.support.v7.widget.CardView
         android="@+id/cardview_list_item"
         android:layout_width="0dp"
-        android:layout_height="103dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
