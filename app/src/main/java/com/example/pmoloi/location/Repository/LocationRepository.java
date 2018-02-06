@@ -3,7 +3,6 @@ package com.example.pmoloi.location.Repository;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
-import android.location.Location;
 import android.os.AsyncTask;
 
 import com.example.pmoloi.location.dao.LocationDao;

@@ -1,14 +1,12 @@
-package com.example.pmoloi.location;
+package com.example.pmoloi.location.ui;
 
 import android.app.AlertDialog;
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,8 +16,10 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
-import com.example.pmoloi.location.ViewModel.LocationViewModel;
+import com.example.pmoloi.location.R;
+import com.example.pmoloi.location.adapter.MapMarkersAdapter;
 import com.example.pmoloi.location.model.LocationModel;
+import com.example.pmoloi.location.ViewModel.LocationViewModel;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.PlaceDetectionClient;
@@ -31,12 +31,10 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -67,7 +65,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mLastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION);
             mCameraPosition = savedInstanceState.getParcelable(KEY_CAMERA_POSITION);
         }
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -119,12 +116,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 alertDialog.show();
             }
         });
+        loadMapPoints();
     }
 
     public void loadMapPoints()
     {
         locationViewModel = ViewModelProviders.of(this).get(LocationViewModel.class);
-
+        final MapMarkersAdapter mapMarkersAdapter = new MapMarkersAdapter(this,R.layout.recyclerview_item);
+        locationViewModel.getAllLocations().observe(this, new Observer<List<LocationModel>>() {
+            @Override
+            public void onChanged(@Nullable List<LocationModel> locationModels) {
+                for (int i =0; i<locationModels.size(); i++) {
+                    mapMarkersAdapter.setMapMarkers(mMap, locationModels.get(i));
+                }
+            }
+        });
     }
 
     @Override
