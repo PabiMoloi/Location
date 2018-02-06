@@ -4,7 +4,6 @@ package com.example.pmoloi.location.ViewModel;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
-import android.location.Location;
 
 import com.example.pmoloi.location.Repository.LocationRepository;
 import com.example.pmoloi.location.model.LocationModel;

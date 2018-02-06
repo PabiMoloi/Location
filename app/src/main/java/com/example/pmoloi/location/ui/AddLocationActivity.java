@@ -1,4 +1,4 @@
-package com.example.pmoloi.location;
+package com.example.pmoloi.location.ui;
 
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.ViewModel.LocationViewModel;
 import com.example.pmoloi.location.model.LocationModel;
 

@@ -1,10 +1,13 @@
-package com.example.pmoloi.location;
+package com.example.pmoloi.location.ui;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.pmoloi.location.BuildConfig;
+import com.example.pmoloi.location.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
