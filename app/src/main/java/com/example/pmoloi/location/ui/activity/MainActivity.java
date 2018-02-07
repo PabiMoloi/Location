@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui;
+package com.example.pmoloi.location.ui.activity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;

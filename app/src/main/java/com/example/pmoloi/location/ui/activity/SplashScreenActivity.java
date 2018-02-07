@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui;
+package com.example.pmoloi.location.ui.activity;
 
 import android.content.Intent;
 import android.os.Handler;
