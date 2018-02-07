@@ -11,7 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.ViewModel.LocationViewModel;
+import com.example.pmoloi.location.viewmodel.LocationViewModel;
 import com.example.pmoloi.location.adapter.LocationListAdapter;
 import com.example.pmoloi.location.model.LocationModel;
 

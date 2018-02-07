@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.Repository;
+package com.example.pmoloi.location.repository;
 
 
 import android.app.Application;

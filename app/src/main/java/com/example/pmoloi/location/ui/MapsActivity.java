@@ -19,7 +19,7 @@ import android.util.Log;
 import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.adapter.MapMarkersAdapter;
 import com.example.pmoloi.location.model.LocationModel;
-import com.example.pmoloi.location.ViewModel.LocationViewModel;
+import com.example.pmoloi.location.viewmodel.LocationViewModel;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.PlaceDetectionClient;
@@ -104,6 +104,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 AddLocationIntent.putExtra("mMapCoordinatesLatitude", mapLocationLatitude);
                                 AddLocationIntent.putExtra("mMapCoordinatesLongitude",mapLocationLongitude);
                                 startActivity(AddLocationIntent);
+                                finish();
                             }
                         })
                         .setNegativeButton(R.string.action_no, new DialogInterface.OnClickListener() {

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.ViewModel.LocationViewModel;
+import com.example.pmoloi.location.viewmodel.LocationViewModel;
 import com.example.pmoloi.location.model.LocationModel;
 
 public class AddLocationActivity extends AppCompatActivity {
@@ -41,6 +41,13 @@ public class AddLocationActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
+    }
+    public void onCancelClick(View view)
+    {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
     private void getViewsFromScreen()
     {

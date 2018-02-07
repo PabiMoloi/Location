@@ -3,7 +3,6 @@ package com.example.pmoloi.location.adapter;
 
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -68,7 +68,9 @@ public class MapMarkersAdapter extends ArrayAdapter<LocationModel>
     public void setMapMarkers(GoogleMap map, LocationModel locationModel)
     {
         map.addMarker(new MarkerOptions().position(new LatLng(locationModel.getLocationLatitude(),locationModel.getLocationLongitude()))
-                .title(locationModel.getLocationName()));
+                .title(locationModel.getLocationName())
+        .snippet(locationModel.getLocationBestFeature())
+        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
     }
     class ViewHolder implements OnMapReadyCallback
     {

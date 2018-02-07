@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#e0e0e0</color>
-    <color name="primaryLightColor">#ffffff</color>
-    <color name="primaryDarkColor">#aeaeae</color>
-    <color name="secondaryColor">#1976d2</color>
-    <color name="secondaryLightColor">#63a4ff</color>
-    <color name="secondaryDarkColor">#004ba0</color>
-    <color name="primaryTextColor">#000000</color>
+    <color name="primaryColor">#ff5722</color>
+    <color name="primaryLightColor">#ff8a50</color>
+    <color name="primaryDarkColor">#c41c00</color>
+    <color name="secondaryColor">#d84315</color>
+    <color name="secondaryLightColor">#ff7543</color>
+    <color name="secondaryDarkColor">#9f0000</color>
+    <color name="primaryTextColor">#fafafa</color>
     <color name="secondaryTextColor">#fafafa</color>
 </resources>
