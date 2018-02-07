@@ -1,19 +1,20 @@
-package com.example.pmoloi.location.ui.activity;
+package com.example.pmoloi.location.ui.activity.mainactivity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.viewmodel.LocationViewModel;
 import com.example.pmoloi.location.adapter.LocationListAdapter;
 import com.example.pmoloi.location.model.LocationModel;
+import com.example.pmoloi.location.ui.activity.mapactivity.MapsActivity;
+import com.example.pmoloi.location.viewmodel.LocationViewModel;
 
 import java.util.List;
 
@@ -39,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void addLocationButtonPress(View view)
-    {
+    public void addLocationButtonPress(View view) {
         Intent addLocationIntent = new Intent(this, MapsActivity.class);
         startActivity(addLocationIntent);
     }

@@ -17,5 +17,4 @@ public interface LocationDao {
 
     @Query("SELECT * FROM LocationModel")
     LiveData<List<LocationModel>> getAllLocations();
-
 }

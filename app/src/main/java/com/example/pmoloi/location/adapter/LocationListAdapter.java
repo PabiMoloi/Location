@@ -7,20 +7,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.model.LocationModel;
 
 import java.util.List;
 
-public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapter.LocationViewHolder>{
+public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapter.LocationViewHolder> {
 
-     class LocationViewHolder extends RecyclerView.ViewHolder
-    {
+    class LocationViewHolder extends RecyclerView.ViewHolder {
         private final TextView textViewLocationName, textViewLocationBestFeature, textViewLocationNumberOfVisits;
 
-        private LocationViewHolder(View textView)
-        {
+        private LocationViewHolder(View textView) {
             super(textView);
             textViewLocationName = textView.findViewById(R.id.textViewListItemLocationName);
             textViewLocationBestFeature = textView.findViewById(R.id.textViewListItemBestFeature);
@@ -30,40 +29,46 @@ public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapte
 
     private final LayoutInflater layoutInflater;
     private List<LocationModel> mLocations;
+    private Context context;
 
-   public LocationListAdapter(Context context){layoutInflater = LayoutInflater.from(context);}
+    public LocationListAdapter(Context context) {
+        layoutInflater = LayoutInflater.from(context);
+        this.context = context;
+    }
 
     @Override
-    public LocationViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-    {
-        View listView = layoutInflater.inflate(R.layout.recyclerview_item,parent,false);
+    public LocationViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View listView = layoutInflater.inflate(R.layout.recyclerview_item, parent, false);
         return new LocationViewHolder(listView);
     }
 
     @Override
-    public void onBindViewHolder(LocationViewHolder holder, int position)
-    {
-        LocationModel currentLocation = mLocations.get(position);
+    public void onBindViewHolder(LocationViewHolder holder, int position) {
+        final LocationModel currentLocation = mLocations.get(position);
         holder.textViewLocationName.setText(currentLocation.getLocationName());
         holder.textViewLocationBestFeature.setText(currentLocation.getLocationBestFeature());
         String numberOfVisits = String.valueOf(currentLocation.getLocationNumberOfVisits());
         holder.textViewLocationNumberOfVisits.setText(numberOfVisits);
+
+        holder.itemView.setTag(position);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "PositionID: " + currentLocation.getLocationId(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
-    public void setLocations(List<LocationModel> locations)
-    {
+    public void setLocations(List<LocationModel> locations) {
         mLocations = locations;
         notifyDataSetChanged();
     }
+
     @Override
-    public int getItemCount()
-    {
-        if(mLocations != null)
-        {
+    public int getItemCount() {
+        if (mLocations != null) {
             return mLocations.size();
-        }
-        else
-        {
+        } else {
             return 0;
         }
     }

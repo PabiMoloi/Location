@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pmoloi.location.ui.activity.MainActivity">
+    tools:context="com.example.pmoloi.location.ui.activity.mainactivity.MainActivity">
 
-    <include layout="@layout/content_main"/>
+    <include layout="@layout/content_main" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -22,6 +22,6 @@
         app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/ic_add_black_24dp"
-        android:onClick="addLocationButtonPress"/>
+        android:onClick="addLocationButtonPress" />
 
 </android.support.constraint.ConstraintLayout>

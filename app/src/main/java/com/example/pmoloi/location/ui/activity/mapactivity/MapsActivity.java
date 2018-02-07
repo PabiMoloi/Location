@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity;
+package com.example.pmoloi.location.ui.activity.mapactivity;
 
 import android.app.AlertDialog;
 import android.arch.lifecycle.Observer;
@@ -8,18 +8,20 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.adapter.MapMarkersAdapter;
 import com.example.pmoloi.location.model.LocationModel;
+import com.example.pmoloi.location.ui.activity.addlocationactivity.AddLocationActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.PlaceDetectionClient;
@@ -31,7 +33,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -80,18 +81,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         getLocationPermission();
         updateLocationUI();
         getDeviceLocation();
-        LatLng sydney = new LatLng(mDefaultLocation.latitude,mDefaultLocation.longitude);
+        LatLng sydney = new LatLng(mDefaultLocation.latitude, mDefaultLocation.longitude);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener()
-        {
+        mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
-            public void onMapLongClick(final LatLng mMapCoordinates)
-            {
+            public void onMapLongClick(final LatLng mMapCoordinates) {
                 mapLocationLatitude = mMapCoordinates.latitude;
                 mapLocationLongitude = mMapCoordinates.longitude;
 
-                mCameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(mMapCoordinates.latitude,mMapCoordinates.longitude),DEFAULT_ZOOM);
+                mCameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(mMapCoordinates.latitude, mMapCoordinates.longitude), DEFAULT_ZOOM);
                 mMap.moveCamera(mCameraUpdate);
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
@@ -102,7 +101,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent AddLocationIntent = new Intent(new Intent(MapsActivity.this, AddLocationActivity.class));
                                 AddLocationIntent.putExtra("mMapCoordinatesLatitude", mapLocationLatitude);
-                                AddLocationIntent.putExtra("mMapCoordinatesLongitude",mapLocationLongitude);
+                                AddLocationIntent.putExtra("mMapCoordinatesLongitude", mapLocationLongitude);
                                 startActivity(AddLocationIntent);
                                 finish();
                             }
@@ -120,14 +119,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         loadMapPoints();
     }
 
-    public void loadMapPoints()
-    {
+    public void loadMapPoints() {
         locationViewModel = ViewModelProviders.of(this).get(LocationViewModel.class);
-        final MapMarkersAdapter mapMarkersAdapter = new MapMarkersAdapter(this,R.layout.recyclerview_item);
+        final MapMarkersAdapter mapMarkersAdapter = new MapMarkersAdapter(this, R.layout.recyclerview_item);
         locationViewModel.getAllLocations().observe(this, new Observer<List<LocationModel>>() {
             @Override
             public void onChanged(@Nullable List<LocationModel> locationModels) {
-                for (int i =0; i<locationModels.size(); i++) {
+                for (int i = 0; i < locationModels.size(); i++) {
                     mapMarkersAdapter.setMapMarkers(mMap, locationModels.get(i));
                 }
             }
@@ -135,14 +133,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle bundle)
-    {
+    protected void onSaveInstanceState(Bundle bundle) {
         if (mMap != null) {
             bundle.putParcelable(KEY_CAMERA_POSITION, mMap.getCameraPosition());
             bundle.putParcelable(KEY_LOCATION, mLastKnownLocation);
             super.onSaveInstanceState(bundle);
         }
     }
+
     private void getDeviceLocation() {
         try {
             if (mLocationPermissionGranted) {
@@ -153,11 +151,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         if (task.isSuccessful()) {
                             // Set the map's camera position to the current location of the device.
                             mLastKnownLocation = task.getResult();
-                            if(mLastKnownLocation != null)
-                            {
+                            if (mLastKnownLocation != null) {
                                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                         new LatLng(mLastKnownLocation.getLatitude(),
-                                                mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));}
+                                                mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+                            }
                         } else
 
                         {
@@ -184,6 +182,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         mLocationPermissionGranted = false;

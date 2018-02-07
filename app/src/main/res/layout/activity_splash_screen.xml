@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryLightColor"
-    tools:context="com.example.pmoloi.location.ui.activity.SplashScreenActivity"
+    tools:context="com.example.pmoloi.location.ui.activity.splashscreenactivity.SplashScreenActivity"
     android:theme="@style/AppThemeNoActionBar">
 
     <TextView
@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_directions_walk_black_24dp"
-        android:contentDescription="@string/splash_screen_logo_content_description"/>
+        android:contentDescription="@string/splash_screen_logo_content_description" />
 
     <TextView
         android:id="@+id/textViewSplashScreenVersionLabel"

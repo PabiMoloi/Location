@@ -1,14 +1,15 @@
-package com.example.pmoloi.location.ui.activity;
+package com.example.pmoloi.location.ui.activity.splashscreenactivity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.pmoloi.location.BuildConfig;
 import com.example.pmoloi.location.R;
+import com.example.pmoloi.location.ui.activity.mainactivity.MainActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -22,11 +23,10 @@ public class SplashScreenActivity extends AppCompatActivity {
         appVersionCode.setText(BuildConfig.VERSION_NAME);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-    stimulateSomeWork();
+        stimulateSomeWork();
     }
 
-    private void stimulateSomeWork()
-    {
+    private void stimulateSomeWork() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
