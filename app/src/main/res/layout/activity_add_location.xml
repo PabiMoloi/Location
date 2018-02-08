@@ -9,7 +9,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="com.example.pmoloi.location.ui.activity.addlocationactivity.AddLocationActivity">
+        tools:context="com.example.pmoloi.location.ui.activity.addlocation.AddLocationActivity">
 
         <TextView
             android:id="@+id/textViewInstructionAddLocation"

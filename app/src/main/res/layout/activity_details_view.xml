@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pmoloi.location.ui.activity.detailsview.DetailsViewActivity">
+
+    <ImageView
+        android:id="@+id/imageViewDetailsViewImage"
+        android:layout_width="0dp"
+        android:layout_height="184dp"
+        android:contentDescription="@string/details_view_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/details_image"
+        app:layout_constraintDimensionRatio="w,21:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDetailsViewLocationName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDetailsViewImage"
+        tools:text="Location Name" />
+
+    <TextView
+        android:id="@+id/textViewDetailsViewLocationType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.027"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailsViewLocationName"
+        tools:text="Location Type" />
+
+    <TextView
+        android:id="@+id/textViewDetailsViewLocationBestFeature"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailsViewLocationType"
+        tools:text="Location Best Feature" />
+
+    <TextView
+        android:id="@+id/textViewDetailsViewNumberOfVisitsCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="224dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewDetailsViewNumberOfVisits"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailsViewLocationBestFeature"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/textViewDetailsViewNumberOfVisits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/addLocation_location_number_of_visits"
+        app:layout_constraintEnd_toStartOf="@+id/textViewDetailsViewNumberOfVisitsCount"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailsViewLocationBestFeature" />
+
+    <Button
+        android:id="@+id/buttonDetailsViewActionCancel"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/action_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDetailsViewNumberOfVisits"
+        android:onClick="onCancelClick" />
+
+</android.support.constraint.ConstraintLayout>

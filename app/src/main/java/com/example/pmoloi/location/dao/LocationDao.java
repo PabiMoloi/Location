@@ -17,4 +17,7 @@ public interface LocationDao {
 
     @Query("SELECT * FROM LocationModel")
     LiveData<List<LocationModel>> getAllLocations();
+
+    @Query("SELECT * FROM LocationModel WHERE locationId = :id")
+    LiveData<LocationModel> findLocationById(int id);
 }

@@ -2,15 +2,16 @@ package com.example.pmoloi.location.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.model.LocationModel;
+import com.example.pmoloi.location.ui.activity.detailsview.DetailsViewActivity;
 
 import java.util.List;
 
@@ -54,7 +55,9 @@ public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "PositionID: " + currentLocation.getLocationId(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context, DetailsViewActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
     }

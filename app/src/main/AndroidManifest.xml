@@ -15,17 +15,18 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.splashscreenactivity.SplashScreenActivity">
+        <activity android:name=".ui.activity.splashscreen.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.mainactivity.MainActivity" />
-        <activity android:name=".ui.activity.addlocationactivity.AddLocationActivity" />
+        <activity android:name=".ui.activity.main.MainActivity" />
+        <activity android:name=".ui.activity.addlocation.AddLocationActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -39,8 +40,9 @@
             android:value="AIzaSyDyX4__JzGzBnDpCVTRIZEE3LMzcTYOq-c" />
 
         <activity
-            android:name=".ui.activity.mapactivity.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:name=".ui.activity.map.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".ui.activity.detailsview.DetailsViewActivity"></activity>
     </application>
 
 </manifest>

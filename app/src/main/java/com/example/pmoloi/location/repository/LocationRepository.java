@@ -16,30 +16,36 @@ public class LocationRepository {
     private LocationDao locationDao;
     private LiveData<List<LocationModel>> mAllLocations;
 
-   public LocationRepository(Application application)
-    {
+    public LocationRepository(Application application) {
         LocationDatabase db = LocationDatabase.getDatabase(application);
         locationDao = db.locationDao();
         mAllLocations = locationDao.getAllLocations();
     }
 
-    public LiveData<List<LocationModel>> getAllLocations(){return mAllLocations;}
-
-    public void insertLocation(LocationModel locationModel)
-    {
-        new insertAsyncTask(locationDao).execute(locationModel);
+    public LiveData<List<LocationModel>> getAllLocations() {
+        return mAllLocations;
     }
 
-    private static class insertAsyncTask extends AsyncTask<LocationModel, Void, Void>
-    {
+    public LiveData<LocationModel> findLocationById(int id) {
+        return locationDao.findLocationById(id);
+    }
+
+    public void insertLocation(LocationModel locationModel) {
+        new InsertAsyncTask(locationDao).execute(locationModel);
+    }
+
+    private static class InsertAsyncTask extends AsyncTask<LocationModel, Void, Void> {
         private LocationDao asyncLocationDao;
-        insertAsyncTask(LocationDao locationDao){asyncLocationDao = locationDao;}
+
+        InsertAsyncTask(LocationDao locationDao) {
+            asyncLocationDao = locationDao;
+        }
 
         @Override
-        protected Void doInBackground(final LocationModel... params)
-        {
+        protected Void doInBackground(final LocationModel... params) {
             asyncLocationDao.insertLocation(params[0]);
             return null;
         }
     }
+
 }
