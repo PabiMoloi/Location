@@ -9,6 +9,7 @@
     <string name="addLocation_location_type">Location Type</string>
     <string name="addLocation_location_number_of_visits"> Number of Visits</string>
 
+
     <string name="action_add_location">Add Location</string>
     <string name="action_cancel">Cancel</string>
     <string name="action_back">Back</string>

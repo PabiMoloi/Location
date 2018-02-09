@@ -11,20 +11,23 @@ import android.widget.TextView;
 
 import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.data.model.LocationModel;
+import com.example.pmoloi.location.data.utils.GeoCoderUtil;
 import com.example.pmoloi.location.ui.activity.listlocation.MainActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
 
 public class DetailsViewActivity extends AppCompatActivity {
 
     LocationViewModel locationViewModel;
-    TextView locationName, locationType, locationBestFeature, locationNumberOfVisits;
+    TextView locationName, locationType, locationBestFeature, locationNumberOfVisits, locationStreetAddress;
     int locationId;
+    GeoCoderUtil geoCoderUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_view);
         initializeVariables();
+        geoCoderUtil = new GeoCoderUtil(this);
         locationViewModel = ViewModelProviders.of(this).get(LocationViewModel.class);
         locationViewModel.findLocationById(locationId).observe(this, new Observer<LocationModel>() {
             @Override
@@ -34,6 +37,7 @@ public class DetailsViewActivity extends AppCompatActivity {
                 locationBestFeature.setText(locationModel.getLocationBestFeature());
                 String numberOfVisits = String.valueOf(locationModel.getLocationNumberOfVisits());
                 locationNumberOfVisits.setText(numberOfVisits);
+                locationStreetAddress.setText(geoCoderUtil.getLocationAddress(locationModel.getLocationLatitude(), locationModel.getLocationLongitude()).toString());
             }
         });
     }
@@ -42,6 +46,7 @@ public class DetailsViewActivity extends AppCompatActivity {
         locationName = findViewById(R.id.textViewDetailsViewLocationName);
         locationType = findViewById(R.id.textViewDetailsViewLocationType);
         locationBestFeature = findViewById(R.id.textViewDetailsViewLocationBestFeature);
+        locationStreetAddress = findViewById(R.id.textViewDetailsStreetAddress);
         locationNumberOfVisits = findViewById(R.id.textViewDetailsViewNumberOfVisitsCount);
         locationId = getIntent().getIntExtra("LocationId", 0);
     }
