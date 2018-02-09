@@ -4,4 +4,4 @@ Location is a simple android application that allows a user to save map markers 
 [![CircleCI](https://circleci.com/gh/PabiMoloi/Location.svg?style=svg)](https://circleci.com/gh/PabiMoloi/Location)
 
 # Screenshots
-![Screenshot](https://raw.github.com/PabiMoloi/Location/blob/master/app/src/main/splashscreen.png)
+![Screenshot](https://github.com/PabiMoloi/Location/blob/master/app/src/main/splashscreen.png)
