@@ -88,7 +88,8 @@
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/addLocation_location_number_of_visits" />
+                android:hint="@string/addLocation_location_number_of_visits"
+                android:inputType="number" />
         </android.support.design.widget.TextInputLayout>
 
         <Button

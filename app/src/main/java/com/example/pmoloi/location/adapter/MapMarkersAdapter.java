@@ -2,6 +2,7 @@ package com.example.pmoloi.location.adapter;
 
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,9 @@ public class MapMarkersAdapter extends ArrayAdapter<LocationModel> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    @NonNull
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+
         View mapRow = convertView;
         ViewHolder holder;
 
@@ -39,7 +42,6 @@ public class MapMarkersAdapter extends ArrayAdapter<LocationModel> {
             holder = new ViewHolder();
             mapRow.setTag(holder);
             holder.initializeMap();
-
             mMaps.add(holder.mapView);
         } else {
             holder = (ViewHolder) mapRow.getTag();
@@ -64,7 +66,7 @@ public class MapMarkersAdapter extends ArrayAdapter<LocationModel> {
         MapView mapView;
         GoogleMap map;
 
-        public void initializeMap() {
+        void initializeMap() {
             if (mapView != null) {
                 mapView.onCreate(null);
                 mapView.getMapAsync(this);

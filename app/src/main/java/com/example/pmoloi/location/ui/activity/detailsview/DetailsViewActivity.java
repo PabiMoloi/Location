@@ -18,7 +18,7 @@ public class DetailsViewActivity extends AppCompatActivity {
 
     LocationViewModel locationViewModel;
     TextView locationName, locationType, locationBestFeature, locationNumberOfVisits;
-
+    int locationId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class DetailsViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details_view);
         initializeVariables();
         locationViewModel = ViewModelProviders.of(this).get(LocationViewModel.class);
-        locationViewModel.findLocationById(1).observe(this, new Observer<LocationModel>() {
+        locationViewModel.findLocationById(locationId).observe(this, new Observer<LocationModel>() {
             @Override
             public void onChanged(@Nullable LocationModel locationModel) {
                 locationName.setText(locationModel.getLocationName());
@@ -43,6 +43,7 @@ public class DetailsViewActivity extends AppCompatActivity {
         locationType = findViewById(R.id.textViewDetailsViewLocationType);
         locationBestFeature = findViewById(R.id.textViewDetailsViewLocationBestFeature);
         locationNumberOfVisits = findViewById(R.id.textViewDetailsViewNumberOfVisitsCount);
+        locationId = getIntent().getIntExtra("LocationId", 0);
     }
 
     public void onCancelClick(View view) {

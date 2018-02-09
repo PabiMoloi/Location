@@ -41,7 +41,7 @@ import java.util.List;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private CameraPosition mCameraPosition;
+
     private CameraUpdate mCameraUpdate;
     private final Context context = this;
     private double mapLocationLatitude, mapLocationLongitude;
@@ -52,11 +52,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Location mLastKnownLocation;
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
-    private GeoDataClient mGeoDataClient;
-    private PlaceDetectionClient mPlaceDetectionClient;
     private static final String TAG = MapsActivity.class.getSimpleName();
     private final LatLng mDefaultLocation = new LatLng(26.2041, 28.0473);
-    private LocationViewModel locationViewModel;
+    LocationViewModel locationViewModel;
+    CameraPosition mCameraPosition;
+    GeoDataClient mGeoDataClient;
+    PlaceDetectionClient mPlaceDetectionClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,21 +2,19 @@ package com.example.pmoloi.location.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-import android.support.annotation.NonNull;
 
 @Entity
 public class LocationModel {
-    @NonNull
+
     public int getLocationId() {
         return locationId;
     }
 
-    public void setLocationId(@NonNull int locationId) {
+    public void setLocationId(int locationId) {
         this.locationId = locationId;
     }
 
     @PrimaryKey(autoGenerate = true)
-    @NonNull
     private int locationId;
 
     public String getLocationName() {
@@ -55,8 +53,7 @@ public class LocationModel {
 
     private String locationType;
 
-    public LocationModel(String locationName, double locationLatitude, double locationLongitude, String locationBestFeature,String locationType, int locationNumberOfVisits)
-    {
+    public LocationModel(String locationName, double locationLatitude, double locationLongitude, String locationBestFeature, String locationType, int locationNumberOfVisits) {
         this.locationName = locationName;
         this.locationLatitude = locationLatitude;
         this.locationLongitude = locationLongitude;

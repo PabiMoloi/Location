@@ -13,7 +13,7 @@ import com.example.pmoloi.location.viewmodel.LocationViewModel;
 
 public class AddLocationActivity extends AppCompatActivity {
 
-    private TextInputLayout locationName, locationBestFeature, locationType, locationNumberOfVisits;
+    TextInputLayout locationName, locationBestFeature, locationType, locationNumberOfVisits;
     private int mNumberOfVisits;
     LocationViewModel locationViewModel;
     private Double mapLocationLatitude, mapLocationLongitude;

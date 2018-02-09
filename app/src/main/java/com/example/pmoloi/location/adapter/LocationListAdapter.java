@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.model.LocationModel;
 import com.example.pmoloi.location.ui.activity.detailsview.DetailsViewActivity;
@@ -50,12 +49,12 @@ public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapte
         holder.textViewLocationBestFeature.setText(currentLocation.getLocationBestFeature());
         String numberOfVisits = String.valueOf(currentLocation.getLocationNumberOfVisits());
         holder.textViewLocationNumberOfVisits.setText(numberOfVisits);
-
         holder.itemView.setTag(position);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailsViewActivity.class);
+                intent.putExtra("LocationId", currentLocation.getLocationId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }

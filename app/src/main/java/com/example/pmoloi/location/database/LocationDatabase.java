@@ -9,10 +9,11 @@ import com.example.pmoloi.location.dao.LocationDao;
 import com.example.pmoloi.location.model.LocationModel;
 
 @Database(entities = {LocationModel.class}, version = 1, exportSchema = false)
-public abstract class LocationDatabase extends RoomDatabase{
+public abstract class LocationDatabase extends RoomDatabase {
 
     public abstract LocationDao locationDao();
-    public static LocationDatabase INSTANCE;
+
+    static LocationDatabase INSTANCE;
 
     public static LocationDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {

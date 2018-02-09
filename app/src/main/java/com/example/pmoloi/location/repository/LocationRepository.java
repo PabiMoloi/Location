@@ -1,6 +1,5 @@
 package com.example.pmoloi.location.repository;
 
-
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
