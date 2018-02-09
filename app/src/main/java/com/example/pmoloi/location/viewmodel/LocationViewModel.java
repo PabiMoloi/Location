@@ -4,8 +4,8 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 
-import com.example.pmoloi.location.model.LocationModel;
-import com.example.pmoloi.location.repository.LocationRepository;
+import com.example.pmoloi.location.data.model.LocationModel;
+import com.example.pmoloi.location.data.repository.LocationRepository;
 
 import java.util.List;
 

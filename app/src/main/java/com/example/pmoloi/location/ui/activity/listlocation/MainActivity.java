@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity.main;
+package com.example.pmoloi.location.ui.activity.listlocation;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -11,8 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.adapter.LocationListAdapter;
-import com.example.pmoloi.location.model.LocationModel;
+import com.example.pmoloi.location.data.model.LocationModel;
 import com.example.pmoloi.location.ui.activity.map.MapsActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
 

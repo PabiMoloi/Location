@@ -1,12 +1,12 @@
-package com.example.pmoloi.location.database;
+package com.example.pmoloi.location.data.database;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.example.pmoloi.location.dao.LocationDao;
-import com.example.pmoloi.location.model.LocationModel;
+import com.example.pmoloi.location.data.dao.LocationDao;
+import com.example.pmoloi.location.data.model.LocationModel;
 
 @Database(entities = {LocationModel.class}, version = 1, exportSchema = false)
 public abstract class LocationDatabase extends RoomDatabase {

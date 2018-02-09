@@ -17,8 +17,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.adapter.MapMarkersAdapter;
-import com.example.pmoloi.location.model.LocationModel;
+import com.example.pmoloi.location.data.model.LocationModel;
 import com.example.pmoloi.location.ui.activity.addlocation.AddLocationActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
 import com.google.android.gms.location.FusedLocationProviderClient;

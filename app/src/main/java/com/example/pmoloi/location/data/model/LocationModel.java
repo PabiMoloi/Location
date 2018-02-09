@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.model;
+package com.example.pmoloi.location.data.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

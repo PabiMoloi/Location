@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity.splashscreen;
+package com.example.pmoloi.location.ui.activity.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.pmoloi.location.BuildConfig;
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.ui.activity.main.MainActivity;
+import com.example.pmoloi.location.ui.activity.listlocation.MainActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

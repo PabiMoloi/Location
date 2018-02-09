@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity.detailsview;
+package com.example.pmoloi.location.ui.activity.details;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.model.LocationModel;
-import com.example.pmoloi.location.ui.activity.main.MainActivity;
+import com.example.pmoloi.location.data.model.LocationModel;
+import com.example.pmoloi.location.ui.activity.listlocation.MainActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
 
 public class DetailsViewActivity extends AppCompatActivity {

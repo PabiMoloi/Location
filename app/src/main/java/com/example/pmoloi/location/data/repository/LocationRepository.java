@@ -1,12 +1,12 @@
-package com.example.pmoloi.location.repository;
+package com.example.pmoloi.location.data.repository;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import com.example.pmoloi.location.dao.LocationDao;
-import com.example.pmoloi.location.database.LocationDatabase;
-import com.example.pmoloi.location.model.LocationModel;
+import com.example.pmoloi.location.data.dao.LocationDao;
+import com.example.pmoloi.location.data.database.LocationDatabase;
+import com.example.pmoloi.location.data.model.LocationModel;
 
 import java.util.List;
 

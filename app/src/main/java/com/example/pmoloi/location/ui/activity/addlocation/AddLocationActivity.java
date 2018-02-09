@@ -7,8 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.model.LocationModel;
-import com.example.pmoloi.location.ui.activity.main.MainActivity;
+import com.example.pmoloi.location.data.model.LocationModel;
+import com.example.pmoloi.location.ui.activity.listlocation.MainActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
 
 public class AddLocationActivity extends AppCompatActivity {

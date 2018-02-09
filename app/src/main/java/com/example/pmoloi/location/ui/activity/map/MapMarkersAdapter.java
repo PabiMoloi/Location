@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.adapter;
+package com.example.pmoloi.location.ui.activity.map;
 
 
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.model.LocationModel;
+import com.example.pmoloi.location.data.model.LocationModel;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;

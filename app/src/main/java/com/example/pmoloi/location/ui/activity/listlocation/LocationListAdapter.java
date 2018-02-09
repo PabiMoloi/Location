@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.adapter;
+package com.example.pmoloi.location.ui.activity.listlocation;
 
 
 import android.content.Context;
@@ -8,9 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.model.LocationModel;
-import com.example.pmoloi.location.ui.activity.detailsview.DetailsViewActivity;
+import com.example.pmoloi.location.data.model.LocationModel;
+import com.example.pmoloi.location.ui.activity.details.DetailsViewActivity;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapte
     private List<LocationModel> mLocations;
     private Context context;
 
-    public LocationListAdapter(Context context) {
+    LocationListAdapter(Context context) {
         layoutInflater = LayoutInflater.from(context);
         this.context = context;
     }
@@ -61,7 +62,7 @@ public class LocationListAdapter extends RecyclerView.Adapter<LocationListAdapte
         });
     }
 
-    public void setLocations(List<LocationModel> locations) {
+    void setLocations(List<LocationModel> locations) {
         mLocations = locations;
         notifyDataSetChanged();
     }
