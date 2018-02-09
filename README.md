@@ -5,3 +5,7 @@ Location is a simple android application that allows a user to save map markers 
 
 # Screenshots
 ![Screenshot](https://github.com/PabiMoloi/Location/blob/master/app/src/main/splashscreen.png)
+![Screenshot](https://github.com/PabiMoloi/Location/blob/master/app/src/main/listview.png)
+![Screenshot](https://github.com/PabiMoloi/Location/blob/master/app/src/main/mapview.png)
+![Screenshot](https://github.com/PabiMoloi/Location/blob/master/app/src/main/quizview.png)
+![Screenshot](https://github.com/PabiMoloi/Location/blob/master/app/src/main/addlocation.png)
