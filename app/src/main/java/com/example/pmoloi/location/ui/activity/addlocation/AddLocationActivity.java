@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.data.model.LocationModel;
 import com.example.pmoloi.location.ui.activity.listlocation.MainActivity;
+import com.example.pmoloi.location.ui.activity.map.MapsActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
 
 public class AddLocationActivity extends AppCompatActivity {
@@ -45,7 +46,7 @@ public class AddLocationActivity extends AppCompatActivity {
     }
 
     public void onCancelClick(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MapsActivity.class);
         startActivity(intent);
         finish();
     }

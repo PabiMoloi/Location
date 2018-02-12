@@ -11,13 +11,12 @@ import com.google.android.gms.maps.GoogleMap;
 
 import java.util.List;
 
-public class LoadMapPoints {
+class LoadMapPoints {
 
-    public LoadMapPoints() {
-
+    LoadMapPoints() {
     }
 
-    public void populateMap(MapsActivity mapsActivity, final GoogleMap mMap, LocationViewModel locationViewModel) {
+    void populateMap(MapsActivity mapsActivity, final GoogleMap mMap, LocationViewModel locationViewModel) {
         locationViewModel = ViewModelProviders.of(mapsActivity).get(LocationViewModel.class);
         final MapMarkersAdapter mapMarkersAdapter = new MapMarkersAdapter(mapsActivity, R.layout.recyclerview_item);
         locationViewModel.getAllLocations().observe(mapsActivity, new Observer<List<LocationModel>>() {
