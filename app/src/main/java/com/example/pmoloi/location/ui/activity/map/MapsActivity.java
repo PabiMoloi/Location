@@ -31,7 +31,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, IMapVariables {
 
     private GoogleMap mMap;
 
@@ -39,14 +39,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final Context context = this;
     private double mapLocationLatitude, mapLocationLongitude;
     private FusedLocationProviderClient mFusedLocationProviderClient;
-    private static final int DEFAULT_ZOOM = 18;
-    private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
     private Location mLastKnownLocation;
-    private static final String KEY_CAMERA_POSITION = "camera_position";
-    private static final String KEY_LOCATION = "location";
-    private static final String TAG = MapsActivity.class.getSimpleName();
-    private final LatLng mDefaultLocation = new LatLng(26.2041, 28.0473);
     LocationViewModel locationViewModel;
     CameraPosition mCameraPosition;
     GeoDataClient mGeoDataClient;
@@ -77,8 +71,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         getLocationPermission();
         updateLocationUI();
         getDeviceLocation();
-        LatLng sydney = new LatLng(mDefaultLocation.latitude, mDefaultLocation.longitude);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
@@ -133,7 +125,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     @Override
                     public void onComplete(@NonNull Task<Location> task) {
                         if (task.isSuccessful()) {
-                            // Set the map's camera position to the current location of the device.
                             mLastKnownLocation = task.getResult();
                             if (mLastKnownLocation != null) {
                                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(

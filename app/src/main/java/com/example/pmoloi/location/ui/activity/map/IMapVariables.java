@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.data.utils;
+package com.example.pmoloi.location.ui.activity.map;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -8,4 +8,5 @@ public interface IMapVariables {
     LatLng mDefaultLocation = new LatLng(26.2041, 28.0473);
     String KEY_CAMERA_POSITION = "camera_position";
     String KEY_LOCATION = "location";
+    String TAG = MapsActivity.class.getSimpleName();
 }
