@@ -23,6 +23,5 @@ public class LocationListTest {
     public void fabButtonClickTest() {
         onView(withId(R.id.floatingActionButtonAddLocation)).perform(click());
     }
-    
 
 }
