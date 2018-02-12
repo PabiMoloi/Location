@@ -1,8 +1,6 @@
 package com.example.pmoloi.location.ui.activity.map;
 
 import android.app.AlertDialog;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,14 +8,12 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.data.model.LocationModel;
 import com.example.pmoloi.location.ui.activity.addlocation.AddLocationActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -34,8 +30,6 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
-import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -57,6 +51,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     CameraPosition mCameraPosition;
     GeoDataClient mGeoDataClient;
     PlaceDetectionClient mPlaceDetectionClient;
+    LoadMapPoints loadMapPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +68,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mPlaceDetectionClient = Places.getPlaceDetectionClient(this, null);
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        loadMapPoints = new LoadMapPoints();
     }
 
     @Override
@@ -116,20 +112,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 alertDialog.show();
             }
         });
-        loadMapPoints();
-    }
 
-    public void loadMapPoints() {
-        locationViewModel = ViewModelProviders.of(this).get(LocationViewModel.class);
-        final MapMarkersAdapter mapMarkersAdapter = new MapMarkersAdapter(this, R.layout.recyclerview_item);
-        locationViewModel.getAllLocations().observe(this, new Observer<List<LocationModel>>() {
-            @Override
-            public void onChanged(@Nullable List<LocationModel> locationModels) {
-                for (int i = 0; i < locationModels.size(); i++) {
-                    mapMarkersAdapter.setMapMarkers(mMap, locationModels.get(i));
-                }
-            }
-        });
+        loadMapPoints.populateMap(this, mMap, locationViewModel);
     }
 
     @Override
