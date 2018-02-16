@@ -13,20 +13,23 @@ public abstract class LocationDatabase extends RoomDatabase {
 
     public abstract LocationDao locationDao();
 
-    static LocationDatabase INSTANCE;
+    private static LocationDatabase INSTANCE;
 
     public static LocationDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (LocationDatabase.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            LocationDatabase.class, "location_database")
-                            .build();
+                    INSTANCE = buildDatabase(context.getApplicationContext());
                 }
             }
-
         }
         return INSTANCE;
     }
+
+    private static LocationDatabase buildDatabase(final Context context) {
+        return Room.databaseBuilder(context.getApplicationContext(), LocationDatabase.class, "location_database").build();
+    }
+
+
 }
 
