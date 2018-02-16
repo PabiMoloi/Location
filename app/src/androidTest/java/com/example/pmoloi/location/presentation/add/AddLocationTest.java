@@ -1,4 +1,4 @@
-package com.example.pmoloi.location;
+package com.example.pmoloi.location.presentation.add;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
@@ -6,6 +6,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.example.pmoloi.location.data.dao.LocationDao;
 import com.example.pmoloi.location.data.database.LocationDatabase;
+import com.example.pmoloi.location.data.model.LocationModel;
 import com.example.pmoloi.location.presentation.splash.SplashScreenActivity;
 
 import junit.framework.Assert;
@@ -17,10 +18,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
-public class LocationDatabaseTest {
+public class AddLocationTest {
 
-    LocationDatabase locationDatabase;
-    LocationDao locationDao;
+    private LocationDatabase locationDatabase;
+    private LocationDao locationDao;
 
     @Before
     public void setUp() {
@@ -37,7 +38,15 @@ public class LocationDatabaseTest {
     public ActivityTestRule<SplashScreenActivity> mActivityTestRule = new ActivityTestRule<>(SplashScreenActivity.class);
 
     @Test
-    public void databaseFunctionalityTest() {
-        Assert.assertEquals(0, locationDao.getAllLocations().getValue().size());
+    public void databaseInsertFunctionalityTest() {
+
+        final LocationModel location = new LocationModel("DVT", 26.1215, 28.0313, "Android Development", "Work", 40);
+        Assert.assertNotNull(location.getLocationId());
+        locationDao.insertLocation(location);
+
+        Assert.assertNotNull(locationDao.getAllLocations());
+
     }
+
+
 }

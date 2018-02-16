@@ -1,12 +1,14 @@
 package com.example.pmoloi.location.presentation.details;
 
 import android.content.Intent;
-import android.support.test.espresso.intent.Intents;
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.example.pmoloi.location.data.dao.LocationDao;
+import com.example.pmoloi.location.data.database.LocationDatabase;
 import com.example.pmoloi.location.data.model.LocationModel;
 
 import org.junit.After;
@@ -24,26 +26,35 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @LargeTest
 public class DetailsViewTest {
 
-    public static final int LOCATION_ID = 1;
+    private static final int LOCATION_ID = 1;
     @Rule
     public ActivityTestRule<DetailsViewActivity> activityTestRule = new ActivityTestRule<DetailsViewActivity>(DetailsViewActivity.class, true, false);
+    private LocationDatabase locationDatabase;
+    private LocationDao locationDao;
 
     @Before
     public void setUp() {
-        Intents.init();
+        locationDatabase = LocationDatabase.getDatabase(InstrumentationRegistry.getTargetContext());
+        locationDao = locationDatabase.locationDao();
+        databaseInsertFunctionalityTest();
     }
 
     @After
     public void tearDown() {
-        Intents.release();
+        locationDatabase.close();
+    }
+
+    public void databaseInsertFunctionalityTest() {
+
+        final LocationModel location = new LocationModel("DVT", 26.1215, 28.0313, "Android Development", "Work", 40);
+        locationDao.insertLocation(location);
     }
 
     @Test
     public void displayLocationInformation() {
         Intent locationDetailIntent = new Intent();
         locationDetailIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        LocationModel locationModel = new LocationModel("DVT", 26.1215, 28.0313, "Android Development", "Work", 40);
-        locationDetailIntent.putExtra("location", locationModel);
+        locationDetailIntent.putExtra("LocationId", LOCATION_ID);
         activityTestRule.launchActivity(locationDetailIntent);
 
         onView(withText("DVT")).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)));

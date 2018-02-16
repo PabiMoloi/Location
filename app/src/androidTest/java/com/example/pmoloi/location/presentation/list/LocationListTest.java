@@ -24,4 +24,5 @@ public class LocationListTest {
         onView(ViewMatchers.withId(R.id.floatingActionButtonAddLocation)).perform(click());
     }
 
+    
 }

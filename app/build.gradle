@@ -9,10 +9,7 @@ android {
         targetSdkVersion 26
         versionCode 2
         versionName "2.0.2"
-        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner "com.android.test.runner.MultiDexTestRunner"
-        testFunctionalTest true
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -31,16 +28,12 @@ dependencies {
 
     //Test components
     testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'junit:junit:4.12'
     testImplementation 'com.android.support.test:rules:1.0.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestCompile 'com.android.support.test:rules:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    androidTestImplementation("com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion") {
-        exclude module: 'recyclerview-v7'
-        exclude module: 'support-annotations'
-        exclude module: 'support-v4'
-    }
-
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion"
     // Room components
     implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
