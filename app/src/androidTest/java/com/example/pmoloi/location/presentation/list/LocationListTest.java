@@ -1,9 +1,10 @@
-package com.example.pmoloi.location;
+package com.example.pmoloi.location.presentation.list;
 
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.pmoloi.location.presentation.list.MainActivity;
+import com.example.pmoloi.location.R;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -11,7 +12,6 @@ import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
 public class LocationListTest {
@@ -21,7 +21,7 @@ public class LocationListTest {
 
     @Test
     public void fabButtonClickTest() {
-        onView(withId(R.id.floatingActionButtonAddLocation)).perform(click());
+        onView(ViewMatchers.withId(R.id.floatingActionButtonAddLocation)).perform(click());
     }
 
 }

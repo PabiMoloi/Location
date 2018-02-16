@@ -1,10 +1,12 @@
-package com.example.pmoloi.location;
+package com.example.pmoloi.location.presentation.splash;
 
 import android.support.test.espresso.Espresso;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.pmoloi.location.presentation.splash.SplashScreenActivity;
+import com.example.pmoloi.location.BuildConfig;
+import com.example.pmoloi.location.R;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -22,11 +24,11 @@ public class SplashScreenTest {
 
     @Test
     public void appNameDisplay() {
-        Espresso.onView(withId(R.id.textViewSplashScreenAppName)).check(matches(withText("Location")));
+        Espresso.onView(ViewMatchers.withId(R.id.textViewSplashScreenAppName)).check(matches(withText("Location")));
     }
 
     @Test
     public void appVersionCodeDisplay() {
-        Espresso.onView(withId(R.id.textViewSplashScreenVersionCodeLabel)).check(matches(withText(BuildConfig.VERSION_NAME)));
+        Espresso.onView(withId(R.id.textViewSplashScreenVersionCodeLabel)).check(matches(ViewMatchers.withText(BuildConfig.VERSION_NAME)));
     }
 }
