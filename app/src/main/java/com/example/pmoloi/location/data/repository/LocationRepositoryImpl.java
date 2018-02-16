@@ -10,12 +10,12 @@ import com.example.pmoloi.location.data.model.LocationModel;
 
 import java.util.List;
 
-public class LocationRepository {
+public class LocationRepositoryImpl implements ILocationRepository {
 
     private LocationDao locationDao;
     private LiveData<List<LocationModel>> mAllLocations;
 
-    public LocationRepository(Application application) {
+    public LocationRepositoryImpl(Application application) {
         LocationDatabase db = LocationDatabase.getDatabase(application);
         locationDao = db.locationDao();
         mAllLocations = locationDao.getAllLocations();

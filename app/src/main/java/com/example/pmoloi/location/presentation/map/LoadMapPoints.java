@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity.map;
+package com.example.pmoloi.location.presentation.map;
 
 
 import android.arch.lifecycle.Observer;

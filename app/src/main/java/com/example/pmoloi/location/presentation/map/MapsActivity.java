@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity.map;
+package com.example.pmoloi.location.presentation.map;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.ui.activity.addlocation.AddLocationActivity;
+import com.example.pmoloi.location.presentation.add.AddLocationActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;

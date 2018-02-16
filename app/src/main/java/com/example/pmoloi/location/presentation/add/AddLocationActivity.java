@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity.addlocation;
+package com.example.pmoloi.location.presentation.add;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,8 @@ import android.view.View;
 
 import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.data.model.LocationModel;
-import com.example.pmoloi.location.ui.activity.listlocation.MainActivity;
-import com.example.pmoloi.location.ui.activity.map.MapsActivity;
+import com.example.pmoloi.location.presentation.list.MainActivity;
+import com.example.pmoloi.location.presentation.map.MapsActivity;
 import com.example.pmoloi.location.viewmodel.LocationViewModel;
 
 public class AddLocationActivity extends AppCompatActivity {

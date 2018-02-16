@@ -4,4 +4,4 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pmoloi.location.ui.activity.map.MapsActivity" />
+    tools:context=".presentation.map.MapsActivity" />

@@ -3,7 +3,7 @@ package com.example.pmoloi.location;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.pmoloi.location.ui.activity.listlocation.MainActivity;
+import com.example.pmoloi.location.presentation.list.MainActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

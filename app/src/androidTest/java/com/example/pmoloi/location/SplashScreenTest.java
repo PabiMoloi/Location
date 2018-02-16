@@ -4,7 +4,7 @@ import android.support.test.espresso.Espresso;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.example.pmoloi.location.ui.activity.splash.SplashScreenActivity;
+import com.example.pmoloi.location.presentation.splash.SplashScreenActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

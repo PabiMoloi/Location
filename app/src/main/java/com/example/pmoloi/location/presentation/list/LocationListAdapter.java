@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity.listlocation;
+package com.example.pmoloi.location.presentation.list;
 
 
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.pmoloi.location.R;
 import com.example.pmoloi.location.data.model.LocationModel;
-import com.example.pmoloi.location.ui.activity.details.DetailsViewActivity;
+import com.example.pmoloi.location.presentation.details.DetailsViewActivity;
 
 import java.util.List;
 

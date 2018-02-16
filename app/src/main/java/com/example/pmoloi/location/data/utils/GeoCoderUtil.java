@@ -33,7 +33,7 @@ public class GeoCoderUtil {
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
-            address.append("Could not retrive street address");
+            address.append("Could not retrieve street address");
         }
         return address;
     }

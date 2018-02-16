@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity.map;
+package com.example.pmoloi.location.presentation.map;
 
 import com.google.android.gms.maps.model.LatLng;
 

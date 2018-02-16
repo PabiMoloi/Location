@@ -1,4 +1,4 @@
-package com.example.pmoloi.location.ui.activity.splash;
+package com.example.pmoloi.location.presentation.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +9,11 @@ import android.widget.TextView;
 
 import com.example.pmoloi.location.BuildConfig;
 import com.example.pmoloi.location.R;
-import com.example.pmoloi.location.ui.activity.listlocation.MainActivity;
+import com.example.pmoloi.location.presentation.list.MainActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private TextView appVersionCode;
+    TextView appVersionCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
