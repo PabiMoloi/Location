@@ -35,6 +35,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestCompile 'com.android.support.test:rules:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation("com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion") {
+        exclude module: 'recyclerview-v7'
+        exclude module: 'support-annotations'
+        exclude module: 'support-v4'
+    }
 
     // Room components
     implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
