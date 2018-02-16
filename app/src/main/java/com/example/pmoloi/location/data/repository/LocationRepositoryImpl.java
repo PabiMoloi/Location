@@ -1,11 +1,9 @@
 package com.example.pmoloi.location.data.repository;
 
-import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
 import com.example.pmoloi.location.data.dao.LocationDao;
-import com.example.pmoloi.location.data.database.LocationDatabase;
 import com.example.pmoloi.location.data.model.LocationModel;
 
 import java.util.List;
@@ -13,16 +11,13 @@ import java.util.List;
 public class LocationRepositoryImpl implements ILocationRepository {
 
     private LocationDao locationDao;
-    private LiveData<List<LocationModel>> mAllLocations;
 
-    public LocationRepositoryImpl(Application application) {
-        LocationDatabase db = LocationDatabase.getDatabase(application);
-        locationDao = db.locationDao();
-        mAllLocations = locationDao.getAllLocations();
+    public LocationRepositoryImpl(LocationDao locationDao) {
+        this.locationDao = locationDao;
     }
 
     public LiveData<List<LocationModel>> getAllLocations() {
-        return mAllLocations;
+        return locationDao.getAllLocations();
     }
 
     public LiveData<LocationModel> findLocationById(int id) {

@@ -5,19 +5,20 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 
 import com.example.pmoloi.location.data.model.LocationModel;
-import com.example.pmoloi.location.data.repository.LocationRepositoryImpl;
+import com.example.pmoloi.location.data.repository.ILocationRepository;
+import com.example.pmoloi.location.data.utils.InjectorUtil;
 
 import java.util.List;
 
 public class LocationViewModel extends AndroidViewModel {
 
     private LiveData<List<LocationModel>> mAllLocations;
-    private LocationRepositoryImpl locationRepositoryImpl;
+    private ILocationRepository iLocationRepository;
 
     public LocationViewModel(Application application) {
         super(application);
-        locationRepositoryImpl = new LocationRepositoryImpl(application);
-        mAllLocations = locationRepositoryImpl.getAllLocations();
+        iLocationRepository = InjectorUtil.getInstance(application);
+        mAllLocations = iLocationRepository.getAllLocations();
     }
 
     public LiveData<List<LocationModel>> getAllLocations() {
@@ -25,11 +26,11 @@ public class LocationViewModel extends AndroidViewModel {
     }
 
     public LiveData<LocationModel> findLocationById(int id) {
-        return locationRepositoryImpl.findLocationById(id);
+        return iLocationRepository.findLocationById(id);
     }
 
     public void insertLocation(LocationModel location) {
-        locationRepositoryImpl.insertLocation(location);
+        iLocationRepository.insertLocation(location);
     }
 
 }
