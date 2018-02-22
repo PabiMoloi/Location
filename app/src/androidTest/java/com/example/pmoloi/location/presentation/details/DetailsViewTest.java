@@ -1,5 +1,7 @@
 package com.example.pmoloi.location.presentation.details;
 
+import android.arch.persistence.room.Room;
+import android.content.Context;
 import android.content.Intent;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.matcher.ViewMatchers;
@@ -28,15 +30,15 @@ public class DetailsViewTest {
 
     private static final int LOCATION_ID = 1;
     @Rule
-    public ActivityTestRule<DetailsViewActivity> activityTestRule = new ActivityTestRule<DetailsViewActivity>(DetailsViewActivity.class, true, false);
+    public ActivityTestRule<DetailsViewActivity> activityTestRule = new ActivityTestRule<DetailsViewActivity>(DetailsViewActivity.class, true, true);
     private LocationDatabase locationDatabase;
     private LocationDao locationDao;
 
     @Before
     public void setUp() {
-        locationDatabase = LocationDatabase.getDatabase(InstrumentationRegistry.getTargetContext());
+        Context context = InstrumentationRegistry.getTargetContext();
+        locationDatabase = Room.inMemoryDatabaseBuilder(context, LocationDatabase.class).build();
         locationDao = locationDatabase.locationDao();
-        databaseInsertFunctionalityTest();
     }
 
     @After

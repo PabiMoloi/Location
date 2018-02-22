@@ -12,10 +12,20 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "fd"
+    productFlavors {
+        mock {
+            dimension "fd"
+            applicationId "com.example.pmoloi.location.mock"
         }
     }
 }
@@ -27,13 +37,16 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
 
     //Test components
-    testImplementation 'junit:junit:4.12'
+    testCompile 'junit:junit:4.12'
     androidTestImplementation 'junit:junit:4.12'
     testImplementation 'com.android.support.test:rules:1.0.1'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestCompile 'com.android.support.test:rules:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.ext.espressoVersion"
+    testImplementation 'android.arch.core:core-testing:1.1.0'
+    testCompile 'org.mockito:mockito-core:2.15.0'
+
     // Room components
     implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
     annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"

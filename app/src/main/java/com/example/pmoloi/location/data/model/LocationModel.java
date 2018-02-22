@@ -1,12 +1,17 @@
 package com.example.pmoloi.location.data.model;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 @Entity
 public class LocationModel implements Parcelable {
+
+    @Ignore
+    public LocationModel() {
+    }
 
     public int getLocationId() {
         return locationId;
