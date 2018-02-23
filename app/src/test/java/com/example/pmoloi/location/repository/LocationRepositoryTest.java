@@ -48,4 +48,5 @@ public class LocationRepositoryTest {
         iLocationRepository.insertLocation(locationModel);
         verify(locationDao).insertLocation(locationModel);
     }
+
 }

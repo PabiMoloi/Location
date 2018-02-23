@@ -32,5 +32,4 @@ public class LocationViewModel extends AndroidViewModel {
     public void insertLocation(LocationModel location) {
         iLocationRepository.insertLocation(location);
     }
-
 }
